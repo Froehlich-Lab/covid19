@@ -16,7 +16,7 @@ library(janitor)
 library(lubridate)
 library(patchwork)
 
-install.packages(c("cowplot", "googleway", "ggplot2", "ggrepel", "ggspatial", "libwgeom", "sf", "rnaturalearth", "rnaturalearthdata"))
+#install.packages(c("cowplot", "googleway", "ggplot2", "ggrepel", "ggspatial", "libwgeom", "sf", "rnaturalearth", "rnaturalearthdata"))
 library("rnaturalearth")
 library("rnaturalearthdata")
 theme_set(theme_bw())
@@ -62,7 +62,9 @@ p1<-ggplot(cnty_covid, aes(x=date, y=log(x_cases_per_million+1), group=entity)) 
   geom_label(label=c("B."), x=as.numeric(as.Date(c("2020-03-01"))), y=c(max_pt))
 
 
-#Our World in Data seafood per captia
+#OUR WORLD IN DATA SEAFOOD PER CAP MAP
+#RICH, I JUST PUT IN A BASIC MAP TO SEE HOW THE PATCHWORK PLOT LOOKS, MODIFY AS YOU SEE FIT!
+
 sea_data<-read.csv("fish-and-seafood-consumption-per-capita.csv") 
 head(sea_data)
 
@@ -71,13 +73,16 @@ head(sea_data)
 names(sea_data) <- c("region","iso3","year","per_cap_kg")
 head(sea_data)
 
-world_map <- map_data("world",sea_data)
+world_map <- map_data("world")
 head(world_map)
 
-comb_data<- left_join(world_map,sea_data, by=region)
+comb_data<- left_join(world_map, sea_data, by="region")
+head(comb_data)
+comb_data$per_cap_kg
 
-p2<-ggplot(world_map, aes(x = long, y = lat, group = group)) +
-  geom_polygon(fill="lightgray", colour = "white")
+p2<-ggplot(comb_data, aes(x = long, y = lat, group = group)) +
+  geom_polygon(aes(fill = per_cap_kg), colour = "white")+
+  scale_fill_viridis_c(option = "C")
 p2
 
 #PLOT TIME-LINE AND MAP TOGETHER
