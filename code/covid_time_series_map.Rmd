@@ -1,0 +1,153 @@
+---
+title: "COVID_timeline_map"
+author: "Richard Cottrell"
+date: "19/04/2020"
+output: html_document
+---
+
+#libraries
+
+```{r}
+library(chron)
+library(here)
+library(RColorBrewer)
+library(lattice)
+library(ncdf4)
+library(oce)
+library(raster)
+library(rgdal)
+library(stats)
+library(ggmap)
+library(rworldmap)
+library(tidyverse)
+library(ggpubr)
+library(janitor)
+library(lubridate)
+library(patchwork)
+library(countrycode)
+
+#install.packages(c("cowplot", "googleway", "ggplot2", "ggrepel", "ggspatial", "libwgeom", "sf", "rnaturalearth", "rnaturalearthdata"))
+library("rnaturalearth")
+library("rnaturalearthdata")
+library("sf")
+library(sp)
+
+
+
+```
+
+
+Color pallettes
+```{r}
+#colors
+cols = rev(colorRampPalette(brewer.pal(11, 'Spectral'))(255)) # rainbow color scheme for plotting
+
+```
+
+
+Data
+
+```{r}
+#Our World in Data COVID (pulled both per million and totals)
+#covid_permil<-read.csv("covid-confirmed-cases-per-million-since-1-per-million.csv") 
+covid_permil <- read_csv(here("data", "covid-confirmed-cases-per-million-since-1-per-million.csv")) %>% 
+  mutate(Date = mdy(Date)) %>% 
+  clean_names()
+  
+
+covid_tot <- read_csv(here("data","total-cases-covid-19.csv")) %>% 
+  mutate(Date = mdy(Date)) %>% 
+  clean_names()
+
+
+covid_countries <- covid_permil %>% 
+  filter(iso3 %in% c("USA", "CHN", "IND"))
+  
+
+max_pt<-log(max(covid_countries$cases_per_million+1))
+```
+
+
+Plots
+
+
+#Time series
+```{r}
+#PLOT WITH EXAMPLE DATES (MODIFY BASED ON NEWS SELECTION)
+p1<-ggplot(covid_countries, aes(x=date, y=log(cases_per_million+1), group=entity)) +
+  geom_line(aes(color=entity), size=2)+
+  labs(x = "Time", y="LN(Confirmed Cases per Million")+
+  scale_x_date(date_labels = "%Y %b %d")+
+  geom_vline(xintercept = as.numeric(as.Date(c("2020-01-23", "2020-03-01"))), linetype=2, 
+             color=c("black", "gray"))+
+  theme_pubr()+
+  theme(legend.title=element_blank(),
+        text=element_text(size=8),
+        legend.box.spacing = unit(0.2, "cm"),
+        legend.background = element_rect(colour = "transparent", fill = "transparent"),
+        legend.box.background = element_rect(colour="transparent", fill="transparent"))+
+  scale_color_brewer(palette="PuBu")+
+  geom_label(label=c("A."), x=as.numeric(as.Date(c("2020-01-23"))), y=c(max_pt))+
+  geom_label(label=c("B."), x=as.numeric(as.Date(c("2020-03-01"))), y=c(max_pt))
+
+
+
+```
+
+
+#Seafood supply map
+```{r}
+
+seafood_data<-read_csv(here("data", "fish-and-seafood-consumption-per-capita.csv")) %>% 
+  clean_names() %>% 
+  rename(seafood_supply_caput_kg_yr = fish_and_seafood_supply_per_person_kilograms_per_year,
+         region = entity,
+         iso_a3 = iso3) %>% 
+  filter(year==2013 & (!(is.na(iso_a3))))
+
+
+
+#bounding box
+bbox <- readOGR(dsn=file.path(here("shapefiles", "ne_110m_graticules_all")), layer="ne_110m_wgs84_bounding_box")
+bbox <- spTransform(bbox, CRS("+proj=robin"))  # reproject bounding box
+bbox_df<- fortify(bbox) #, group="ISO_TER1"
+
+
+#countries
+countries <- readOGR(dsn = file.path(here("shapefiles", "ne_110m_admin_0_countries")), layer="ne_110m_admin_0_countries")
+#countries <- countries[!countries$iso_a3 %in% c("ATA"),] #remove antartica
+countries<- spTransform(countries, CRS("+proj=robin"))
+countries@data$id <- rownames(countries@data)
+countries@data <- left_join(countries@data, seafood_data, by="iso_a3")
+countries_df<-fortify(countries)
+countries_df<-left_join(countries_df, countries@data, by="id")
+
+# countries_df<- countries_df %>% 
+#   select(-c( brk_group, formal_fr, note_adm0, note_brk, name_alt, fips_10))
+
+p2 <- ggplot(data=bbox_df, aes(long,lat, group=group)) + geom_polygon(fill="aliceblue")+
+  geom_polygon(data=countries_df, aes(x=long, y=lat, group=group, map_id=id, fill=(seafood_supply_caput_kg_yr)))+
+  theme_nothing()+
+  theme(legend.position = "bottom",
+        legend.text = element_text(size=8),
+        legend.title = element_text(size=8),
+        legend.box.spacing = unit(-1, "cm"))+
+  scale_fill_viridis_c(direction=-1, option="A", na.value = "grey90")+
+  guides(fill=guide_colorbar(title.position = "top", title.hjust = 0.5, barwidth = 10, barheight = 0.5, units="cm"))+
+  labs(fill=bquote(Seafood~supply~kg~capita^-1~yr^-1)) +
+  ggsave(here("plots", paste0("seafood_supply_map_", Sys.Date(), ".tiff")), device="tiff", dpi=300, width=12, height=7, units="cm")
+
+```
+
+
+#combine plots
+
+```{r}
+
+ggarrange(p1, p2, 
+          labels="auto",
+          nrow = 2, ncol=1) +
+  ggsave(here("plots", paste0("composite_timeline_figure", Sys.Date(), ".jpg")), device="jpg", dpi=300, width = 12, height=14, units = "cm")
+
+```
+
