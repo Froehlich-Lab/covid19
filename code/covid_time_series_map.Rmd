@@ -114,7 +114,7 @@ seafood_data<-read_csv(here("data", "fish-and-seafood-consumption-per-capita.csv
   filter(year==2013 & (!(is.na(iso_a3))))
 
 
-trade_data <- read_csv(here("data", "imports.csv")) %>% 
+trade_data <- read_csv(here("data", "imports_exports.csv")) %>% 
   rename(iso_a3 = ISO3c) %>%
   mutate(imp_from_CHN_kg = case_when(is.na(imp_from_CHN_kg)~ 0,
                                      TRUE ~ imp_from_CHN_kg)) %>% 
@@ -161,7 +161,7 @@ p2 <- ggplot(data=bbox_df, aes(long,lat, group=group)) + geom_polygon(fill="alic
   scale_fill_viridis_c(direction=-1, option="A", na.value = "grey90" ,labels=c(2.5, 5, 7.5, 10), breaks=c(2.5e+08, 5e+08, 7.5e+08, 10e+08))+
   guides(fill=guide_colorbar(title.position = "top", title.hjust = 0.5, barwidth = 10, barheight = 0.5, units="cm"))+
   labs(fill=bquote(Total~trade~flows~(million~tonnes))) +
-  ggsave(here("plots", paste0("seafood_supply_map_", Sys.Date(), ".tiff")), device="tiff", dpi=300, width=12, height=7, units="cm")
+  ggsave(here("plots", paste0("seafood_trade_map_", Sys.Date(), ".tiff")), device="tiff", dpi=300, width=12, height=7, units="cm")
 
 
 
