@@ -60,12 +60,16 @@ covid_tot <- read_csv(here("data","total-cases-covid-19.csv")) %>%
   mutate(Date = mdy(Date)) %>% 
   clean_names()
 
+chn_news<-read_csv("china_news.csv") 
+  head(chn_news)
 
 covid_countries <- covid_permil %>% 
-  filter(iso3 %in% c("USA", "CHN", "IND"))
+  filter(iso3 %in% c("USA","CHN","IND","AUS", "CHL", "NOR",
+       "PER","CAN", "ZAF", "KEN"))
   
 
 max_pt<-log(max(covid_countries$cases_per_million+1))
+dates <- na.omit(unique(chn_news$clean_date))
 ```
 
 
@@ -75,21 +79,24 @@ Plots
 #Time series
 ```{r}
 #PLOT WITH EXAMPLE DATES (MODIFY BASED ON NEWS SELECTION)
-p1<-ggplot(covid_countries, aes(x=date, y=log(cases_per_million+1), group=entity)) +
+p0<-ggplot(covid_countries, aes(x=date, y=log(cases_per_million+1), group=entity)) +
   geom_line(aes(color=entity), size=2)+
   labs(x = "Time", y="LN(Confirmed Cases per Million")+
   scale_x_date(date_labels = "%Y %b %d")+
-  geom_vline(xintercept = as.numeric(as.Date(c("2020-01-23", "2020-03-01"))), linetype=2, 
-             color=c("black", "gray"))+
+  geom_vline(xintercept = as.numeric(as.Date(dates[c(1,4,5,7:10)])), linetype=2,color="black")+
   theme_pubr()+
   theme(legend.title=element_blank(),
         text=element_text(size=8),
         legend.box.spacing = unit(0.2, "cm"),
         legend.background = element_rect(colour = "transparent", fill = "transparent"),
-        legend.box.background = element_rect(colour="transparent", fill="transparent"))+
+        legend.box.background = element_rect(colour="transparent", fill="transparent"), 
+        legend.position = 'none', plot.margin = unit(c(1,4,1,1), "lines"))+
   scale_color_brewer(palette="PuBu")+
-  geom_label(label=c("A."), x=as.numeric(as.Date(c("2020-01-23"))), y=c(max_pt))+
-  geom_label(label=c("B."), x=as.numeric(as.Date(c("2020-03-01"))), y=c(max_pt))
+  annotate("text", x = as.Date(dates[c(1,4,5,7:10)]-2), y=c(max_pt), label = c("A.","B.","C.","D.","E.","F.","G."))
+#DEAL WITH MARGIN ISSUES
+p1 <- ggplotGrob(p0)
+p1$layout$clip[p1$layout$name == "panel"] <- "off"
+grid.draw(p1)
 
 
 

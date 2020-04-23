@@ -15,6 +15,8 @@ library(tidyverse)
 library(janitor)
 library(lubridate)
 library(patchwork)
+library(viridis)
+library(grid)
 
 #install.packages(c("cowplot", "googleway", "ggplot2", "ggrepel", "ggspatial", "libwgeom", "sf", "rnaturalearth", "rnaturalearthdata"))
 library("rnaturalearth")
@@ -34,6 +36,17 @@ covid_permil <- read_csv(here("data", "covid-confirmed-cases-per-million-since-1
 head(covid_permil)
 covid_tot<-read.csv("total-cases-covid-19.csv") 
 head(covid_tot)
+chn_news<-read.csv("china_news.csv") 
+head(chn_news)
+
+#NEWS BACK BONE OF DATES AND COUNTRIES OF INTEREST
+chn_news$clean_date <- mdy(chn_news$clean_date)
+head(chn_news)
+
+  dates <- na.omit(unique(chn_news$clean_date))
+  dates #10 total
+  link<- na.omit(unique(chn_news$linked_countires))
+  link #10 countries
 
 #DEAL WITH DATE
 covid_permil$Date <- mdy(covid_permil$Date)
@@ -43,26 +56,36 @@ head(covid_permil)
 cl_covid <- covid_permil %>%
   clean_names()
 head(cl_covid)
+unique(cl_covid$iso3)
 
 #PICK STATES
-id<- c("USA","CHN","IND")
+id<- c("USA","CHN","IND","AUS", "CHL", "NOR",
+       "PER","CAN", "ZAF", "KEN")
 cnty_covid<-filter(cl_covid, iso3 %in% id)
 head(cnty_covid)
 max_pt<-log(max(cnty_covid$x_cases_per_million+1))
 
 #PLOT WITH EXAMPLE DATES (MODIFY BASED ON NEWS SELECTION)
+max_day<-max(as.Date(cnty_covid$date))
+quartz()
 p1<-ggplot(cnty_covid, aes(x=date, y=log(x_cases_per_million+1), group=entity)) +
   geom_line(aes(color=entity), size=2)+
-  labs(x = "Time", y="LN(Confirmed Cases per Million")+
+  labs(x = "Time", y="LN(Confirmed Cases per Million)")+
   scale_x_date(date_labels = "%Y %b %d")+
-  geom_vline(xintercept = as.numeric(as.Date(c("2020-01-23", "2020-03-01"))), linetype=2, 
-             color=c("black", "gray"))+
+  #geom_vline(xintercept = as.numeric(as.Date(c("2020-01-23", "2020-03-01"))), linetype=2,color="black", "gray")+
+  geom_vline(xintercept = as.numeric(as.Date(dates[c(1,4,5,7:10)])), linetype=2,color="black")+  
   theme_classic()+
-  theme(legend.title=element_blank())+
-  scale_color_brewer(palette="PuBu")+
-  geom_label(label=c("A."), x=as.numeric(as.Date(c("2020-01-23"))), y=c(max_pt))+
-  geom_label(label=c("B."), x=as.numeric(as.Date(c("2020-03-01"))), y=c(max_pt))
-
+  scale_color_viridis(discrete = TRUE, option = "D")+
+  geom_text(data = filter(cnty_covid, date == max_day), aes(label = entity, colour = entity, x = max_day, y = log(x_cases_per_million+1)), hjust = -.1)+
+  theme(legend.position = 'none', plot.margin = unit(c(1,4,1,1), "lines"))+
+  annotate("text", x = as.Date(dates[c(1,4,5,7:10)]-2), y=c(max_pt), label = c("A.","B.","C.","D.","E.","F.","G."))
+ 
+quartz()
+gt <- ggplotGrob(p1)
+gt$layout$clip[gt$layout$name == "panel"] <- "off"
+grid.draw(gt)
+  
+    
 
 #OUR WORLD IN DATA SEAFOOD PER CAP MAP
 #RICH, I JUST PUT IN A BASIC MAP TO SEE HOW THE PATCHWORK PLOT LOOKS, MODIFY AS YOU SEE FIT!
