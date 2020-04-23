@@ -1,6 +1,7 @@
 rm(list=ls())
 
 library(chron)
+library(here)
 library(RColorBrewer)
 library(lattice)
 library(ncdf4)
@@ -10,8 +11,7 @@ library(rgdal)
 library(stats)
 library(ggmap)
 library(rworldmap)
-library(dplyr)
-library(tidyr)
+library(tidyverse)
 library(janitor)
 library(lubridate)
 library(patchwork)
@@ -22,13 +22,15 @@ library("rnaturalearthdata")
 theme_set(theme_bw())
 library("sf")
 
-setwd("~/Desktop/github/covid19/data")
+#setwd("~/Desktop/github/covid19/data")
 
 #colors
 cols = rev(colorRampPalette(brewer.pal(11, 'Spectral'))(255)) # rainbow color scheme for plotting
 
 #Our World in Data COVID (pulled both per million and totals)
 covid_permil<-read.csv("covid-confirmed-cases-per-million-since-1-per-million.csv") 
+covid_permil <- read_csv(here("data", "covid-confirmed-cases-per-million-since-1-per-million.csv"))
+
 head(covid_permil)
 covid_tot<-read.csv("total-cases-covid-19.csv") 
 head(covid_tot)
