@@ -42,7 +42,7 @@ chn_news$clean_date <- mdy(chn_news$clean_date)
 head(chn_news)
 
   dates <- na.omit(unique(chn_news$clean_date))
-  dates #10 total
+  dates #10 total dates of interest dates[c(1,4,5,7:10)]
   link<- na.omit(unique(chn_news$linked_countires))
   link #10 countries
 
