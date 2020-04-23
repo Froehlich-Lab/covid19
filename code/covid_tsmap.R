@@ -71,17 +71,16 @@ p1<-ggplot(cnty_covid, aes(x=date, y=log(x_cases_per_million+1), group=entity)) 
   labs(x = "Time", y="LN(Confirmed Cases per Million)")+
   scale_x_date(date_labels = "%Y %b %d")+
   #geom_vline(xintercept = as.numeric(as.Date(c("2020-01-23", "2020-03-01"))), linetype=2,color="black", "gray")+
-  geom_vline(xintercept = as.numeric(as.Date(dates[c(1,4,5,7:10)])), linetype=2,color="black", "gray")+  
+  geom_vline(xintercept = as.numeric(as.Date(dates[c(1,4,5,7:10)])), linetype=2,color="black")+  
   theme_classic()+
   scale_color_viridis(discrete = TRUE, option = "D")+
   geom_text(data = filter(cnty_covid, date == max_day), aes(label = entity, colour = entity, x = max_day, y = log(x_cases_per_million+1)), hjust = -.1)+
   theme(legend.position = 'none', plot.margin = unit(c(1,4,1,1), "lines"))+
   annotate("text", x = as.Date(dates[c(1,4,5,7:10)]-2), y=c(max_pt), label = c("A.","B.","C.","D.","E.","F.","G."))
  
-
+quartz()
 gt <- ggplotGrob(p1)
 gt$layout$clip[gt$layout$name == "panel"] <- "off"
-quartz()
 grid.draw(gt)
   
     
