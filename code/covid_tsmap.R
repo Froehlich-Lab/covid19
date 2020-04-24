@@ -65,7 +65,7 @@ max_pt<-log(max(cnty_covid$cases_per_million+1))
 
 #PLOT WITH EXAMPLE DATES (MODIFY BASED ON NEWS SELECTION)
 max_day<-max(as.Date(cnty_covid$date))
-quartz()
+
 p1<-ggplot(cnty_covid, aes(x=date, y=log(cases_per_million+1), group=entity)) +
   geom_line(aes(color=entity), size=2)+
   labs(x = "Time", y="LN(Confirmed Cases per Million)")+
