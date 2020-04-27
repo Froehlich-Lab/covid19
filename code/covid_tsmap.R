@@ -58,7 +58,7 @@ unique(cl_covid$iso3)
 
 #PICK STATES
 id<- c("USA","CHN","IND","AUS", "CHL", "NOR",
-       "PER","CAN", "ZAF", "KEN", "MMR")
+       "PER","ZAF", "KEN", "MMR")
 cnty_covid<-filter(cl_covid, iso3 %in% id)
 head(cnty_covid)
 max_pt<-log(max(cnty_covid$cases_per_million+1))
