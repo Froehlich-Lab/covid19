@@ -27,14 +27,18 @@ library("sf")
 
 setwd("~/Desktop/github/covid19/data")
 
+
 #Our World in Data COVID (pulled both per million and totals)
-covid_permil<-read_csv("covid-confirmed-cases-per-million-since-1-per-million.csv") 
+#covid_permil<-read_csv("covid-confirmed-cases-per-million-since-1-per-million.csv") 
 covid_permil <- read_csv(here("data", "covid-confirmed-cases-per-million-since-1-per-million.csv"))
 
 head(covid_permil)
-covid_tot<-read_csv("total-cases-covid-19.csv") 
+#covid_tot<-read_csv("total-cases-covid-19.csv") 
+covid_tot <- read_csv(here("data","total-cases-covid-19.csv"))
+
 head(covid_tot)
-chn_news<-read_csv("china_news.csv") 
+#chn_news<-read_csv("china_news.csv") 
+chn_news<-read_csv(here("data", "china_news.csv"))
 head(chn_news)
 
 #NEWS BACK BONE OF DATES AND COUNTRIES OF INTEREST
@@ -74,15 +78,23 @@ p1<-ggplot(cnty_covid, aes(x=date, y=log(cases_per_million+1), group=entity)) +
   geom_vline(xintercept = as.numeric(as.Date(dates[c(1,4,5,8,10,12)])), linetype=2,color="black")+  
   theme_classic()+
   scale_color_viridis(discrete = TRUE, option = "D")+
-  geom_text(data = filter(cnty_covid, date == max_day), aes(label = entity, colour = entity, x = max_day, y = log(cases_per_million+1)), hjust = -.1)+
+  geom_text(data = filter(cnty_covid, date == max_day), aes(label = entity,
+                                                            colour = entity,
+                                                            x = max_day, 
+                                                            y = case_when(entity %in% c("Peru", "South Africa") ~ log(cases_per_million+1)-0.2,
+                                                                          TRUE ~ log(cases_per_million+1))),
+            size=3,
+            hjust = -.1)+
   theme(legend.position = 'none', plot.margin = unit(c(1,4,1,1), "lines"))+
-  annotate("text", x = as.Date(dates[c(1,4,5,8,10,12)]-2), y=c(max_pt), label = c("A.","B.","C.","D.","E.","F."))
+  annotate("text", x = as.Date(dates[c(1,4,5,8,10,12)]-1.5), y=c(max_pt), label = c("A.","B.","C.","D.","E.","F."),size=2.5)
  
+
+
 quartz()
 gt <- ggplotGrob(p1)
 gt$layout$clip[gt$layout$name == "panel"] <- "off"
 grid.draw(gt)
-  
+
     
 
 #OUR WORLD IN DATA SEAFOOD PER CAP MAP
