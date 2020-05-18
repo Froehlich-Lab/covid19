@@ -70,7 +70,7 @@ ggplot(lg_ts, aes(x= std_day, y=google_value, group=as.factor(year), fill=as.fac
   #geom_vline(xintercept = as.numeric(as.Date(c("2020-03-11"))), linetype=2,color="red")+
   geom_vline(xintercept = 70, linetype=1,color="red", cex=0.8)+
   theme_classic()+
-  facet_wrap(~search_term)+
+  facet_wrap(~search_term, scales = "free")+
   geom_smooth(aes(color = as.factor(year), fill = as.factor(year)), method = "loess") + 
   scale_color_viridis(discrete = TRUE, option = "D")+
   scale_fill_viridis(discrete = TRUE) 
