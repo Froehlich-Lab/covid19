@@ -50,6 +50,9 @@ unique(dat_csv_ts$year)
 
 cl_ts <- dat_csv_ts %>%
   clean_names
+cl_map <- dat_csv_map %>%
+  clean_names
+
 cl_ts$day <- mdy(cl_ts$day)
 head(cl_ts)
 
@@ -77,3 +80,48 @@ ggplot(lg_ts, aes(x= std_day, y=google_value, group=as.factor(year), fill=as.fac
   scale_color_manual(values = c("gray", "gray","gray", "gray", "#00AFBB"))
   #scale_color_viridis(discrete = TRUE, option = "D")+
   #scale_fill_viridis(discrete = TRUE) 
+
+library(usmap)
+
+head(cl_map)
+
+#remove % and make value numeric
+cl_map$seafood_restaurant <- as.numeric(sub("%", "",cl_map$seafood_restaurant))
+cl_map$seafood_delivery <- as.numeric(sub("%", "",cl_map$seafood_delivery))
+cl_map$seafood_recipe <- as.numeric(sub("%", "",cl_map$seafood_recipe))
+cl_map$sushi_take_out <- as.numeric(sub("%", "",cl_map$sushi_take_out))
+cl_map$bbq_restaurant <- as.numeric(sub("%", "",cl_map$bbq_restaurant))
+
+#Make NA = 0
+cl_map[is.na(cl_map)] <- 0
+
+#gather data for ggplot
+lg_map<-gather(cl_map, search_term, google_value, seafood_restaurant, seafood_delivery,seafood_recipe,
+              sushi_take_out, bbq_restaurant, factor_key=TRUE)
+lg_map$full <- lg_map$region
+
+head(lg_map)
+head(statepop)
+
+full_map<-left_join(statepop,lg_map, by="full")
+head(full_map)
+
+
+
+unique(full_map$search_term)
+sub_map <- filter(full_map, search_term=="seafood_restaurant")
+
+my_palette <- rev(magma(8))[c(-1,-8)]
+
+
+
+#plot
+quartz()
+plot_usmap("states", data=full_map, values = "google_value", color = "gray") + 
+  theme(legend.position = "right")+
+  labs()+
+  facet_wrap(. ~ search_term + year)+
+  scale_color_binned()+
+  scale_color_viridis(discrete = FALSE, option = "D")+
+  scale_fill_viridis(discrete = FALSE) 
+  
