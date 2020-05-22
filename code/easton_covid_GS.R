@@ -111,9 +111,6 @@ head(full_map)
 unique(full_map$search_term)
 sub_map <- filter(full_map, search_term=="seafood_restaurant")
 
-my_palette <- rev(magma(8))[c(-1,-8)]
-
-
 
 #plot
 quartz()
