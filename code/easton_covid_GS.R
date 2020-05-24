@@ -114,7 +114,7 @@ sub_map <- filter(full_map, search_term=="seafood_restaurant")
 
 #plot
 quartz()
-plot_usmap("states", data=full_map, values = "google_value", color = "gray") + 
+plot_usmap("states", data=sub_map, values = "google_value", color = "gray") + 
   theme(legend.position = "right")+
   labs()+
   facet_wrap(. ~ search_term + year)+
