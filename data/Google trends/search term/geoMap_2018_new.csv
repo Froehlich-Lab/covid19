@@ -1,4 +1,4 @@
-Region,seafood restaurant: (1/1/18 - 5/15/18),seafood recipe: (1/1/18 - 5/15/18),seafood delivery: (1/1/18 - 5/15/18),sushi take out: (1/1/18 - 5/15/18),bbq restaurant: (1/1/18 - 5/15/18),category,date_range,year,country
+Region,seafood restaurant,seafood recipe,seafood delivery,sushi take out,bbq restaurant,category,date_range,year,country
 Louisiana,76%,14%,2%,1%,7%,food & drink,(1/1/18 - 5/15/18),2018,usa
 South Carolina,74%,10%,2%,<1%,14%,food & drink,(1/1/18 - 5/15/18),2018,usa
 Hawaii,68%,10%,1%,1%,20%,food & drink,(1/1/18 - 5/15/18),2018,usa
