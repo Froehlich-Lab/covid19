@@ -8,6 +8,7 @@ output: html_document
 #libraries
 
 ```{r}
+
 library(chron)
 library(here)
 library(RColorBrewer)
@@ -63,7 +64,7 @@ covid_tot <- read_csv(here("data","total-cases-covid-19.csv")) %>%
   mutate(Date = mdy(Date)) %>% 
   clean_names()
 
-chn_news<-read_csv("china_news.csv") 
+chn_news<-read_csv(here("data", "china_news.csv"))
   head(chn_news)
 
 covid_countries <- covid_permil %>% 
@@ -152,20 +153,30 @@ countries@data <- left_join(countries@data, trade_data, by="iso_a3")
 countries_df<-fortify(countries)
 countries_df<-left_join(countries_df, countries@data, by="id")
 
+
+centroids.df <- data_frame(coordinates(countries[countries$iso_a3 %in% c("USA","CHN","IND","AUS", "CHL", "NOR", "PER","ZAF", "KEN", "MMR"),]) ) %>% mutate(label = c("A", "A", ("C  D"), "F", "E", "C" , "B", "C", "E", "A" ))
+
+
+centroids.df$`coordinates(...)
+
+coordinates(centroids.df)
+
+
 # countries_df<- countries_df %>% 
 #   select(-c( brk_group, formal_fr, note_adm0, note_brk, name_alt, fips_10))
 
-p2 <- ggplot(data=bbox_df, aes(long,lat, group=group)) + geom_polygon(fill="aliceblue")+
+(p2 <- ggplot(data=bbox_df, aes(long,lat, group=group)) + geom_polygon(fill="aliceblue")+
   geom_polygon(data=countries_df, aes(x=long, y=lat, group=group,  fill=(total_china_trade)))+
   theme_nothing()+
   theme(legend.position = "bottom",
         legend.text = element_text(size=8),
         legend.title = element_text(size=8),
         legend.box.spacing = unit(-1, "cm"))+
-  scale_fill_viridis_c(direction=-1, option="A", na.value = "grey90",labels=c(2.5, 5, 7.5, 10), breaks=c(2.5e+08, 5e+08, 7.5e+08, 10e+08))+
+  scale_fill_viridis_c(direction=-1, option="D", na.value = "grey90",labels=c(2.5, 5, 7.5, 10), breaks=c(2.5e+08, 5e+08, 7.5e+08, 10e+08))
   guides(fill=guide_colorbar(title.position = "top", title.hjust = 0.5, barwidth = 10, barheight = 0.5, units="cm"))+
   labs(fill=bquote(Total~seafood~trade~with~China~(Tx10^6))) +
-  ggsave(here("plots", paste0("seafood_trade_map_", Sys.Date(), ".tiff")), device="tiff", dpi=300, width=12, height=7, units="cm")
+    geom_label(data = centroids.df, aes(x=))+
+  ggsave(here("plots", paste0("seafood_trade_map_", Sys.Date(), ".tiff")), device="tiff", dpi=300, width=12, height=7, units="cm"))
 
 
 
