@@ -28,7 +28,7 @@ food.prod <- filter(food.prod, major_grp != "AMPHIBIA, REPTILIA")
 unique(consmp.data$Unit)
 
 consmp.tot <- filter(consmp.data, Unit == "tonnes")
-consmp.cap <- filter(consmp.data, Unit == "g/capita/day")
+consmp.cap <- filter(consmp.data, Unit == "kg/capita/yr")
 
 #prod.data[is.na(prod.data)] <- 0
 
