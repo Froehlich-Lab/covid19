@@ -1,0 +1,294 @@
+year,type,envt,n_spp,prod_tonnes,element,consumption_tonnes,country
+1950,aquaculture,freshwater,7,5030,NA,NA,USA
+1950,aquaculture,marine,5,56853,NA,NA,USA
+1950,capture,freshwater,22,85697,NA,NA,USA
+1950,capture,marine,288,2542680.9,NA,NA,USA
+1951,aquaculture,freshwater,7,5179,NA,NA,USA
+1951,aquaculture,marine,5,63267,NA,NA,USA
+1951,capture,freshwater,22,87258,NA,NA,USA
+1951,capture,marine,291,2363533.7,NA,NA,USA
+1952,aquaculture,freshwater,7,5337,NA,NA,USA
+1952,aquaculture,marine,5,73347,NA,NA,USA
+1952,capture,freshwater,22,94680,NA,NA,USA
+1952,capture,marine,292,2377419,NA,NA,USA
+1953,aquaculture,freshwater,7,5494,NA,NA,USA
+1953,aquaculture,marine,5,74774,NA,NA,USA
+1953,capture,freshwater,22,90221,NA,NA,USA
+1953,capture,marine,289,2443540,NA,NA,USA
+1954,aquaculture,freshwater,7,5655,NA,NA,USA
+1954,aquaculture,marine,5,81727,NA,NA,USA
+1954,capture,freshwater,22,85877,NA,NA,USA
+1954,capture,marine,288,2509928,NA,NA,USA
+1955,aquaculture,freshwater,7,5847,NA,NA,USA
+1955,aquaculture,marine,5,93844,NA,NA,USA
+1955,capture,freshwater,22,94117,NA,NA,USA
+1955,capture,marine,285,2526556,NA,NA,USA
+1956,aquaculture,freshwater,7,6059,NA,NA,USA
+1956,aquaculture,marine,5,92742,NA,NA,USA
+1956,capture,freshwater,22,90381,NA,NA,USA
+1956,capture,marine,288,2704595,NA,NA,USA
+1957,aquaculture,freshwater,7,6313,NA,NA,USA
+1957,aquaculture,marine,5,89458,NA,NA,USA
+1957,capture,freshwater,23,81348,NA,NA,USA
+1957,capture,marine,291,2474081,NA,NA,USA
+1958,aquaculture,freshwater,7,6607,NA,NA,USA
+1958,aquaculture,marine,5,83632,NA,NA,USA
+1958,capture,freshwater,23,77496,NA,NA,USA
+1958,capture,marine,294,2454888,NA,NA,USA
+1959,aquaculture,freshwater,7,6982,NA,NA,USA
+1959,aquaculture,marine,5,96077,NA,NA,USA
+1959,capture,freshwater,23,76658,NA,NA,USA
+1959,capture,marine,301,2686045,NA,NA,USA
+1960,aquaculture,freshwater,7,7028,NA,NA,USA
+1960,aquaculture,marine,5,97393,NA,NA,USA
+1960,capture,freshwater,23,81709,NA,NA,USA
+1960,capture,marine,298,2632477,NA,NA,USA
+1961,aquaculture,freshwater,7,7986,Food supply quantity (tonnes),2465134.53,USA
+1961,aquaculture,marine,5,94561,Food supply quantity (tonnes),2465134.53,USA
+1961,capture,freshwater,23,80713,Food supply quantity (tonnes),2465134.53,USA
+1961,capture,marine,299,2770734,Food supply quantity (tonnes),2465134.53,USA
+1962,aquaculture,freshwater,7,8759,Food supply quantity (tonnes),2567920.97,USA
+1962,aquaculture,marine,5,101202,Food supply quantity (tonnes),2567920.97,USA
+1962,capture,freshwater,23,76006,Food supply quantity (tonnes),2567920.97,USA
+1962,capture,marine,303,2821523,Food supply quantity (tonnes),2567920.97,USA
+1963,aquaculture,freshwater,7,9832,Food supply quantity (tonnes),2540411.27,USA
+1963,aquaculture,marine,5,112865,Food supply quantity (tonnes),2540411.27,USA
+1963,capture,freshwater,23,77226,Food supply quantity (tonnes),2540411.27,USA
+1963,capture,marine,302,2577485,Food supply quantity (tonnes),2540411.27,USA
+1964,aquaculture,freshwater,7,11032,Food supply quantity (tonnes),2512372.65,USA
+1964,aquaculture,marine,5,112852,Food supply quantity (tonnes),2512372.65,USA
+1964,capture,freshwater,23,73577,Food supply quantity (tonnes),2512372.65,USA
+1964,capture,marine,308,2445942,Food supply quantity (tonnes),2512372.65,USA
+1965,aquaculture,freshwater,7,26557,Food supply quantity (tonnes),2565690.17,USA
+1965,aquaculture,marine,5,106021,Food supply quantity (tonnes),2565690.17,USA
+1965,capture,freshwater,24,77206,Food supply quantity (tonnes),2565690.17,USA
+1965,capture,marine,309,2572296,Food supply quantity (tonnes),2565690.17,USA
+1966,aquaculture,freshwater,7,16861,Food supply quantity (tonnes),2679738.32,USA
+1966,aquaculture,marine,5,97375,Food supply quantity (tonnes),2679738.32,USA
+1966,capture,freshwater,24,96745,Food supply quantity (tonnes),2679738.32,USA
+1966,capture,marine,309,2345153,Food supply quantity (tonnes),2679738.32,USA
+1967,aquaculture,freshwater,7,19981,Food supply quantity (tonnes),2581751.89,USA
+1967,aquaculture,marine,5,107318,Food supply quantity (tonnes),2581751.89,USA
+1967,capture,freshwater,25,86568,Food supply quantity (tonnes),2581751.89,USA
+1967,capture,marine,309,2224760,Food supply quantity (tonnes),2581751.89,USA
+1968,aquaculture,freshwater,7,23298,Food supply quantity (tonnes),2907292.79,USA
+1968,aquaculture,marine,5,107817,Food supply quantity (tonnes),2907292.79,USA
+1968,capture,freshwater,25,76356,Food supply quantity (tonnes),2907292.79,USA
+1968,capture,marine,309,2334276,Food supply quantity (tonnes),2907292.79,USA
+1969,aquaculture,freshwater,7,21692,Food supply quantity (tonnes),2762261.46,USA
+1969,aquaculture,marine,5,95076,Food supply quantity (tonnes),2762261.46,USA
+1969,capture,freshwater,25,75628,Food supply quantity (tonnes),2762261.46,USA
+1969,capture,marine,309,2363161,Food supply quantity (tonnes),2762261.46,USA
+1970,aquaculture,freshwater,8,37604,Food supply quantity (tonnes),3043467.13,USA
+1970,aquaculture,marine,8,131077,Food supply quantity (tonnes),3043467.13,USA
+1970,capture,freshwater,33,77650,Food supply quantity (tonnes),3043467.13,USA
+1970,capture,marine,471,2716148,Food supply quantity (tonnes),3043467.13,USA
+1971,aquaculture,freshwater,8,35000,Food supply quantity (tonnes),2976269.81,USA
+1971,aquaculture,marine,8,130590,Food supply quantity (tonnes),2976269.81,USA
+1971,capture,freshwater,33,74200,Food supply quantity (tonnes),2976269.81,USA
+1971,capture,marine,472,2810630,Food supply quantity (tonnes),2976269.81,USA
+1972,aquaculture,freshwater,8,39660,Food supply quantity (tonnes),3410819.73,USA
+1972,aquaculture,marine,8,133970,Food supply quantity (tonnes),3410819.73,USA
+1972,capture,freshwater,33,70550,Food supply quantity (tonnes),3410819.73,USA
+1972,capture,marine,468,2701745,Food supply quantity (tonnes),3410819.73,USA
+1973,aquaculture,freshwater,8,44770,Food supply quantity (tonnes),3313364.14,USA
+1973,aquaculture,marine,8,125550,Food supply quantity (tonnes),3313364.14,USA
+1973,capture,freshwater,33,81000,Food supply quantity (tonnes),3313364.14,USA
+1973,capture,marine,469,2727062,Food supply quantity (tonnes),3313364.14,USA
+1974,aquaculture,freshwater,8,50620,Food supply quantity (tonnes),3213106.01,USA
+1974,aquaculture,marine,8,116419,Food supply quantity (tonnes),3213106.01,USA
+1974,capture,freshwater,33,80810,Food supply quantity (tonnes),3213106.01,USA
+1974,capture,marine,470,2804798,Food supply quantity (tonnes),3213106.01,USA
+1975,aquaculture,freshwater,8,66694,Food supply quantity (tonnes),3097948.52,USA
+1975,aquaculture,marine,8,151765,Food supply quantity (tonnes),3097948.52,USA
+1975,capture,freshwater,33,73365,Food supply quantity (tonnes),3097948.52,USA
+1975,capture,marine,471,2773592,Food supply quantity (tonnes),3097948.52,USA
+1976,aquaculture,freshwater,8,64587,Food supply quantity (tonnes),3450284.1,USA
+1976,aquaculture,marine,8,119320,Food supply quantity (tonnes),3450284.1,USA
+1976,capture,freshwater,33,72987,Food supply quantity (tonnes),3450284.1,USA
+1976,capture,marine,484,3015133,Food supply quantity (tonnes),3450284.1,USA
+1977,aquaculture,freshwater,8,65136,Food supply quantity (tonnes),3445888.68,USA
+1977,aquaculture,marine,8,109174,Food supply quantity (tonnes),3445888.68,USA
+1977,capture,freshwater,33,68953,Food supply quantity (tonnes),3445888.68,USA
+1977,capture,marine,484,2968559,Food supply quantity (tonnes),3445888.68,USA
+1978,aquaculture,freshwater,8,56031,Food supply quantity (tonnes),3650903.4,USA
+1978,aquaculture,marine,8,102764,Food supply quantity (tonnes),3650903.4,USA
+1978,capture,freshwater,33,77002,Food supply quantity (tonnes),3650903.4,USA
+1978,capture,marine,483,3400538,Food supply quantity (tonnes),3650903.4,USA
+1979,aquaculture,freshwater,8,50805,Food supply quantity (tonnes),3627810.59,USA
+1979,aquaculture,marine,8,88185,Food supply quantity (tonnes),3627810.59,USA
+1979,capture,freshwater,33,62023,Food supply quantity (tonnes),3627810.59,USA
+1979,capture,marine,483,3521252,Food supply quantity (tonnes),3627810.59,USA
+1980,aquaculture,freshwater,8,77609,Food supply quantity (tonnes),3576667.12,USA
+1980,aquaculture,marine,8,90756,Food supply quantity (tonnes),3576667.12,USA
+1980,capture,freshwater,35,66145,Food supply quantity (tonnes),3576667.12,USA
+1980,capture,marine,493,3636910,Food supply quantity (tonnes),3576667.12,USA
+1981,aquaculture,freshwater,8,118300,Food supply quantity (tonnes),4003433.95,USA
+1981,aquaculture,marine,9,111811,Food supply quantity (tonnes),4003433.95,USA
+1981,capture,freshwater,36,61695,Food supply quantity (tonnes),4003433.95,USA
+1981,capture,marine,497,3639311.081,Food supply quantity (tonnes),4003433.95,USA
+1982,aquaculture,freshwater,8,152364,Food supply quantity (tonnes),3867124.8,USA
+1982,aquaculture,marine,8,109361,Food supply quantity (tonnes),3867124.8,USA
+1982,capture,freshwater,37,70086,Food supply quantity (tonnes),3867124.8,USA
+1982,capture,marine,499,3882507.036,Food supply quantity (tonnes),3867124.8,USA
+1983,aquaculture,freshwater,8,163932,Food supply quantity (tonnes),4137390.96,USA
+1983,aquaculture,marine,8,104551,Food supply quantity (tonnes),4137390.96,USA
+1983,capture,freshwater,37,72708,Food supply quantity (tonnes),4137390.96,USA
+1983,capture,marine,499,4080169.109,Food supply quantity (tonnes),4137390.96,USA
+1984,aquaculture,brackishwater,1,0,Food supply quantity (tonnes),4587699.21,USA
+1984,aquaculture,freshwater,10,184434,Food supply quantity (tonnes),4587699.21,USA
+1984,aquaculture,marine,20,142019,Food supply quantity (tonnes),4587699.21,USA
+1984,capture,freshwater,40,74015,Food supply quantity (tonnes),4587699.21,USA
+1984,capture,marine,504,4647673.239,Food supply quantity (tonnes),4587699.21,USA
+1985,aquaculture,brackishwater,1,0,Food supply quantity (tonnes),4606231,USA
+1985,aquaculture,freshwater,11,191813,Food supply quantity (tonnes),4606231,USA
+1985,aquaculture,marine,21,131760,Food supply quantity (tonnes),4606231,USA
+1985,capture,freshwater,41,73849,Food supply quantity (tonnes),4606231,USA
+1985,capture,marine,502,4645945.522,Food supply quantity (tonnes),4606231,USA
+1986,aquaculture,brackishwater,1,0,Food supply quantity (tonnes),4609019.33,USA
+1986,aquaculture,freshwater,11,232389,Food supply quantity (tonnes),4609019.33,USA
+1986,aquaculture,marine,23,139802,Food supply quantity (tonnes),4609019.33,USA
+1986,capture,freshwater,41,72929,Food supply quantity (tonnes),4609019.33,USA
+1986,capture,marine,503,4807977,Food supply quantity (tonnes),4609019.33,USA
+1987,aquaculture,brackishwater,1,0,Food supply quantity (tonnes),5207261.54,USA
+1987,aquaculture,freshwater,11,249815,Food supply quantity (tonnes),5207261.54,USA
+1987,aquaculture,marine,24,133444,Food supply quantity (tonnes),5207261.54,USA
+1987,capture,freshwater,41,76381,Food supply quantity (tonnes),5207261.54,USA
+1987,capture,marine,503,5617788,Food supply quantity (tonnes),5207261.54,USA
+1988,aquaculture,brackishwater,1,0,Food supply quantity (tonnes),5002387.2,USA
+1988,aquaculture,freshwater,12,229844,Food supply quantity (tonnes),5002387.2,USA
+1988,aquaculture,marine,25,127813,Food supply quantity (tonnes),5002387.2,USA
+1988,capture,freshwater,43,59577,Food supply quantity (tonnes),5002387.2,USA
+1988,capture,marine,504,5611011.963,Food supply quantity (tonnes),5002387.2,USA
+1989,aquaculture,brackishwater,1,0,Food supply quantity (tonnes),5650289,USA
+1989,aquaculture,freshwater,12,247399,Food supply quantity (tonnes),5650289,USA
+1989,aquaculture,marine,25,121853,Food supply quantity (tonnes),5650289,USA
+1989,capture,freshwater,43,45951.499,Food supply quantity (tonnes),5650289,USA
+1989,capture,marine,504,5445336.831,Food supply quantity (tonnes),5650289,USA
+1990,aquaculture,brackishwater,1,0,Food supply quantity (tonnes),5574461.86,USA
+1990,aquaculture,freshwater,12,234208,Food supply quantity (tonnes),5574461.86,USA
+1990,aquaculture,marine,24,81519,Food supply quantity (tonnes),5574461.86,USA
+1990,capture,freshwater,44,36311.998,Food supply quantity (tonnes),5574461.86,USA
+1990,capture,marine,513,5584005.44,Food supply quantity (tonnes),5574461.86,USA
+1991,aquaculture,brackishwater,1,0,Food supply quantity (tonnes),5397013.05,USA
+1991,aquaculture,freshwater,12,244586,Food supply quantity (tonnes),5397013.05,USA
+1991,aquaculture,marine,24,118497,Food supply quantity (tonnes),5397013.05,USA
+1991,capture,freshwater,45,42969.499,Food supply quantity (tonnes),5397013.05,USA
+1991,capture,marine,511,5201560.66,Food supply quantity (tonnes),5397013.05,USA
+1992,aquaculture,brackishwater,1,0,Food supply quantity (tonnes),5692743.38,USA
+1992,aquaculture,freshwater,12,276763,Food supply quantity (tonnes),5692743.38,USA
+1992,aquaculture,marine,24,137081,Food supply quantity (tonnes),5692743.38,USA
+1992,capture,freshwater,45,47969.495,Food supply quantity (tonnes),5692743.38,USA
+1992,capture,marine,512,5226911.88,Food supply quantity (tonnes),5692743.38,USA
+1993,aquaculture,brackishwater,1,0,Food supply quantity (tonnes),5993713.8,USA
+1993,aquaculture,freshwater,12,276609,Food supply quantity (tonnes),5993713.8,USA
+1993,aquaculture,marine,24,140304,Food supply quantity (tonnes),5993713.8,USA
+1993,capture,freshwater,45,53798.499,Food supply quantity (tonnes),5993713.8,USA
+1993,capture,marine,513,5554311.24,Food supply quantity (tonnes),5993713.8,USA
+1994,aquaculture,brackishwater,1,0,Food supply quantity (tonnes),5949068.35,USA
+1994,aquaculture,freshwater,12,264488,Food supply quantity (tonnes),5949068.35,USA
+1994,aquaculture,marine,24,126924,Food supply quantity (tonnes),5949068.35,USA
+1994,capture,freshwater,45,41889.814,Food supply quantity (tonnes),5949068.35,USA
+1994,capture,marine,519,5610627.747,Food supply quantity (tonnes),5949068.35,USA
+1995,aquaculture,brackishwater,1,0,Food supply quantity (tonnes),5886429.39,USA
+1995,aquaculture,freshwater,12,274716,Food supply quantity (tonnes),5886429.39,USA
+1995,aquaculture,marine,24,138738,Food supply quantity (tonnes),5886429.39,USA
+1995,capture,freshwater,41,42169,Food supply quantity (tonnes),5886429.39,USA
+1995,capture,marine,664,5166994,Food supply quantity (tonnes),5886429.39,USA
+1996,aquaculture,brackishwater,1,0,Food supply quantity (tonnes),5695157.88,USA
+1996,aquaculture,freshwater,12,279866,Food supply quantity (tonnes),5695157.88,USA
+1996,aquaculture,marine,23,113480,Food supply quantity (tonnes),5695157.88,USA
+1996,capture,freshwater,41,32480,Food supply quantity (tonnes),5695157.88,USA
+1996,capture,marine,664,5036850,Food supply quantity (tonnes),5695157.88,USA
+1997,aquaculture,brackishwater,1,115,Food supply quantity (tonnes),5755432.86,USA
+1997,aquaculture,freshwater,12,308750,Food supply quantity (tonnes),5755432.86,USA
+1997,aquaculture,marine,21,129491,Food supply quantity (tonnes),5755432.86,USA
+1997,capture,freshwater,41,37338,Food supply quantity (tonnes),5755432.86,USA
+1997,capture,marine,664,5118469,Food supply quantity (tonnes),5755432.86,USA
+1998,aquaculture,brackishwater,1,212,Food supply quantity (tonnes),6040320.78,USA
+1998,aquaculture,freshwater,10,320144,Food supply quantity (tonnes),6040320.78,USA
+1998,aquaculture,marine,20,124763,Food supply quantity (tonnes),6040320.78,USA
+1998,capture,freshwater,41,33371,Food supply quantity (tonnes),6040320.78,USA
+1998,capture,marine,663,4812478,Food supply quantity (tonnes),6040320.78,USA
+1999,aquaculture,brackishwater,1,129,Food supply quantity (tonnes),6077890.24,USA
+1999,aquaculture,freshwater,10,339333,Food supply quantity (tonnes),6077890.24,USA
+1999,aquaculture,marine,15,139750,Food supply quantity (tonnes),6077890.24,USA
+1999,capture,freshwater,41,29113,Food supply quantity (tonnes),6077890.24,USA
+1999,capture,marine,664,4933564,Food supply quantity (tonnes),6077890.24,USA
+2000,aquaculture,brackishwater,1,488,Food supply quantity (tonnes),6272600.62,USA
+2000,aquaculture,freshwater,10,325310,Food supply quantity (tonnes),6272600.62,USA
+2000,aquaculture,marine,19,131032,Food supply quantity (tonnes),6272600.62,USA
+2000,capture,freshwater,41,32502,Food supply quantity (tonnes),6272600.62,USA
+2000,capture,marine,663,4755981,Food supply quantity (tonnes),6272600.62,USA
+2001,aquaculture,brackishwater,1,501,Food supply quantity (tonnes),6179018.7,USA
+2001,aquaculture,freshwater,10,331957,Food supply quantity (tonnes),6179018.7,USA
+2001,aquaculture,marine,18,147904,Food supply quantity (tonnes),6179018.7,USA
+2001,capture,freshwater,41,35983,Food supply quantity (tonnes),6179018.7,USA
+2001,capture,marine,664,4970523,Food supply quantity (tonnes),6179018.7,USA
+2002,aquaculture,brackishwater,1,121,Food supply quantity (tonnes),6576032.14,USA
+2002,aquaculture,freshwater,9,358748,Food supply quantity (tonnes),6576032.14,USA
+2002,aquaculture,marine,18,140030,Food supply quantity (tonnes),6576032.14,USA
+2002,capture,freshwater,41,40174,Food supply quantity (tonnes),6576032.14,USA
+2002,capture,marine,664,4958280,Food supply quantity (tonnes),6576032.14,USA
+2003,aquaculture,brackishwater,2,260,Food supply quantity (tonnes),7016597.26,USA
+2003,aquaculture,freshwater,11,377348,Food supply quantity (tonnes),7016597.26,USA
+2003,aquaculture,marine,18,168363,Food supply quantity (tonnes),7016597.26,USA
+2003,capture,freshwater,41,27899,Food supply quantity (tonnes),7016597.26,USA
+2003,capture,marine,663,4958959,Food supply quantity (tonnes),7016597.26,USA
+2004,aquaculture,brackishwater,2,56,Food supply quantity (tonnes),7342131.44,USA
+2004,aquaculture,freshwater,12,363706,Food supply quantity (tonnes),7342131.44,USA
+2004,aquaculture,marine,21,243808,Food supply quantity (tonnes),7342131.44,USA
+2004,capture,freshwater,41,28496,Food supply quantity (tonnes),7342131.44,USA
+2004,capture,marine,664,4971803,Food supply quantity (tonnes),7342131.44,USA
+2005,aquaculture,freshwater,12,355346,Food supply quantity (tonnes),6949939.57,USA
+2005,aquaculture,marine,21,158574,Food supply quantity (tonnes),6949939.57,USA
+2005,capture,freshwater,41,22740,Food supply quantity (tonnes),6949939.57,USA
+2005,capture,marine,663,4918790,Food supply quantity (tonnes),6949939.57,USA
+2006,aquaculture,freshwater,12,338927,Food supply quantity (tonnes),7280511.26,USA
+2006,aquaculture,marine,22,181040,Food supply quantity (tonnes),7280511.26,USA
+2006,capture,freshwater,41,16530,Food supply quantity (tonnes),7280511.26,USA
+2006,capture,marine,663,4871208,Food supply quantity (tonnes),7280511.26,USA
+2007,aquaculture,freshwater,13,351180,Food supply quantity (tonnes),6841351.37,USA
+2007,aquaculture,marine,22,174865,Food supply quantity (tonnes),6841351.37,USA
+2007,capture,freshwater,41,23716,Food supply quantity (tonnes),6841351.37,USA
+2007,capture,marine,664,4776601,Food supply quantity (tonnes),6841351.37,USA
+2008,aquaculture,freshwater,13,324905,Food supply quantity (tonnes),6617111.77,USA
+2008,aquaculture,marine,22,176421,Food supply quantity (tonnes),6617111.77,USA
+2008,capture,freshwater,41,23600,Food supply quantity (tonnes),6617111.77,USA
+2008,capture,marine,662,4350392,Food supply quantity (tonnes),6617111.77,USA
+2009,aquaculture,freshwater,12,300448,Food supply quantity (tonnes),6626475.63,USA
+2009,aquaculture,marine,21,180776,Food supply quantity (tonnes),6626475.63,USA
+2009,capture,freshwater,41,24923,Food supply quantity (tonnes),6626475.63,USA
+2009,capture,marine,639,4204492,Food supply quantity (tonnes),6626475.63,USA
+2010,aquaculture,freshwater,10,300646,Food supply quantity (tonnes),6797178.85,USA
+2010,aquaculture,marine,22,196053,Food supply quantity (tonnes),6797178.85,USA
+2010,capture,freshwater,41,23360,Food supply quantity (tonnes),6797178.85,USA
+2010,capture,marine,639,4293931,Food supply quantity (tonnes),6797178.85,USA
+2011,aquaculture,freshwater,10,241334,Food supply quantity (tonnes),6732698.21,USA
+2011,aquaculture,marine,22,155958,Food supply quantity (tonnes),6732698.21,USA
+2011,capture,freshwater,41,22101,Food supply quantity (tonnes),6732698.21,USA
+2011,capture,marine,639,5158223,Food supply quantity (tonnes),6732698.21,USA
+2012,aquaculture,freshwater,11,229185,Food supply quantity (tonnes),6772413.6,USA
+2012,aquaculture,marine,22,191201,Food supply quantity (tonnes),6772413.6,USA
+2012,capture,freshwater,41,21826,Food supply quantity (tonnes),6772413.6,USA
+2012,capture,marine,639,4989567,Food supply quantity (tonnes),6772413.6,USA
+2013,aquaculture,freshwater,11,245663,Food supply quantity (tonnes),6883419.6,USA
+2013,aquaculture,marine,23,183348,Food supply quantity (tonnes),6883419.6,USA
+2013,capture,freshwater,41,27251,Food supply quantity (tonnes),6883419.6,USA
+2013,capture,marine,639,5072597,Food supply quantity (tonnes),6883419.6,USA
+2014,aquaculture,freshwater,11,237297,NA,NA,USA
+2014,aquaculture,marine,22,183892,NA,NA,USA
+2014,capture,freshwater,41,22933,NA,NA,USA
+2014,capture,marine,638,4967433,NA,NA,USA
+2015,aquaculture,freshwater,11,243462,NA,NA,USA
+2015,aquaculture,marine,19,182540,NA,NA,USA
+2015,capture,freshwater,41,20248,NA,NA,USA
+2015,capture,marine,638,5023356,NA,NA,USA
+2016,aquaculture,freshwater,11,250783,NA,NA,USA
+2016,aquaculture,marine,19,193896,NA,NA,USA
+2016,capture,freshwater,41,23528,NA,NA,USA
+2016,capture,marine,637,4885771,NA,NA,USA
+2017,aquaculture,freshwater,11,249445,NA,NA,USA
+2017,aquaculture,marine,16,190225,NA,NA,USA
+2017,capture,freshwater,40,16548,NA,NA,USA
+2017,capture,marine,637,5023886.7,NA,NA,USA

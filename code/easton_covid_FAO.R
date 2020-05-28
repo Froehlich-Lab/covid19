@@ -40,12 +40,19 @@ cl_cap <- consmp.cap %>%
   clean_names
 
 head(cl_cap)
+head(cl_tot)
+
 unique(cl_prod$major_grp)
 
 grp_prod <- cl_prod %>%
   group_by(year, type, envt)%>%
   summarise(n_spp = n(), total_tonnes = sum(tonnes))
 head(grp_prod)
+
+all.data<-left_join(grp_prod,cl_tot, by ="year")
+head(all.data)
+
+#write.csv(all.data, "all_FAO_data.csv") #For Trevor
 
 cl_prod %>%
   filter(year==2017)%>%
