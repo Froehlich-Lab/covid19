@@ -276,19 +276,19 @@ year,type,envt,n_spp,prod_tonnes,element,consumption_tonnes,country
 2013,aquaculture,marine,23,183348,Food supply quantity (tonnes),6883419.6,USA
 2013,capture,freshwater,41,27251,Food supply quantity (tonnes),6883419.6,USA
 2013,capture,marine,639,5072597,Food supply quantity (tonnes),6883419.6,USA
-2014,aquaculture,freshwater,11,237297,NA,NA,USA
-2014,aquaculture,marine,22,183892,NA,NA,USA
-2014,capture,freshwater,41,22933,NA,NA,USA
-2014,capture,marine,638,4967433,NA,NA,USA
-2015,aquaculture,freshwater,11,243462,NA,NA,USA
-2015,aquaculture,marine,19,182540,NA,NA,USA
-2015,capture,freshwater,41,20248,NA,NA,USA
-2015,capture,marine,638,5023356,NA,NA,USA
-2016,aquaculture,freshwater,11,250783,NA,NA,USA
-2016,aquaculture,marine,19,193896,NA,NA,USA
-2016,capture,freshwater,41,23528,NA,NA,USA
-2016,capture,marine,637,4885771,NA,NA,USA
-2017,aquaculture,freshwater,11,249445,NA,NA,USA
-2017,aquaculture,marine,16,190225,NA,NA,USA
-2017,capture,freshwater,40,16548,NA,NA,USA
-2017,capture,marine,637,5023886.7,NA,NA,USA
+2014,aquaculture,freshwater,11,237297,Food supply quantity (tonnes),6953000,USA
+2014,aquaculture,marine,22,183892,Food supply quantity (tonnes),6953000,USA
+2014,capture,freshwater,41,22933,Food supply quantity (tonnes),6953000,USA
+2014,capture,marine,638,4967433,Food supply quantity (tonnes),6953000,USA
+2015,aquaculture,freshwater,11,243462,Food supply quantity (tonnes),7034000,USA
+2015,aquaculture,marine,19,182540,Food supply quantity (tonnes),7034000,USA
+2015,capture,freshwater,41,20248,Food supply quantity (tonnes),7034000,USA
+2015,capture,marine,638,5023356,Food supply quantity (tonnes),7034000,USA
+2016,aquaculture,freshwater,11,250783,Food supply quantity (tonnes),7078000,USA
+2016,aquaculture,marine,19,193896,Food supply quantity (tonnes),7078000,USA
+2016,capture,freshwater,41,23528,Food supply quantity (tonnes),7078000,USA
+2016,capture,marine,637,4885771,Food supply quantity (tonnes),7078000,USA
+2017,aquaculture,freshwater,11,249445,Food supply quantity (tonnes),7270000,USA
+2017,aquaculture,marine,16,190225,Food supply quantity (tonnes),7270000,USA
+2017,capture,freshwater,40,16548,Food supply quantity (tonnes),7270000,USA
+2017,capture,marine,637,5023886.7,Food supply quantity (tonnes),7270000,USA

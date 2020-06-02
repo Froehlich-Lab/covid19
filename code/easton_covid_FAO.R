@@ -64,7 +64,7 @@ cl_prod %>%
 5040435/(5040435+ 439670)
 
 quartz()
-pO<-ggplot(grp_prod, aes(x= year, y=(total_tonnes/1000000) , group=type)) +
+ggplot(grp_prod, aes(x= year, y=(total_tonnes/1000000) , group=type)) +
   geom_line(aes(color=type), size=1)+
   labs(x = "Year", y="Harvest (million tonnes)")+
   #geom_vline(xintercept = as.numeric(as.Date(c("2020-03-11"))), linetype=2,color="red")+
@@ -80,6 +80,7 @@ pO<-ggplot(grp_prod, aes(x= year, y=(total_tonnes/1000000) , group=type)) +
 head(cl_cap)
 head(cl_tot)
 
+filter(cl_tot, year= "2013")
 
 p1<-ggplot(cl_cap, aes(x= year, y=(value) , group=element)) +
   geom_line(aes(color=element), size=1)+
