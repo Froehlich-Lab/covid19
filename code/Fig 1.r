@@ -1,11 +1,10 @@
 #=============================================================
-#Data from Halley Froehlich 28 May 2020
+#Data from Halley Froehlich 28 May 2020 (HF edit 2 June 2020)
 #For paper on executive order on fish and aquaculture
-#plot by Trevor Branch tbranch@uw.edu  
+#plot by Trevor Branch tbranch@uw.edu
 #=============================================================
 library(tidyverse)
 
-fig.1 <- function(filename="all_FAO_data.csv") {
    XX <- read.csv(file="all_FAO_data.csv", stringsAsFactors=FALSE)
    #Three panels: aquaculture, capture, and consumption
    aq.fresh <- filter(XX, envt=="freshwater", type=="aquaculture")
@@ -65,7 +64,5 @@ fig.1 <- function(filename="all_FAO_data.csv") {
    text(x=1983, y=6.3, 
         labels=c("Total consumption"),
         col=c(line.colors[3]), cex=1.3)
-}
-pdf(file="Fig 1 Trends v2.pdf", width=3.5, height=5.5)
-fig.1(filename="all_FAO_data.csv")
-dev.off()
+
+
