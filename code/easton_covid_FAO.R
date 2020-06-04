@@ -40,12 +40,19 @@ cl_cap <- consmp.cap %>%
   clean_names
 
 head(cl_cap)
+head(cl_tot)
+
 unique(cl_prod$major_grp)
 
 grp_prod <- cl_prod %>%
   group_by(year, type, envt)%>%
   summarise(n_spp = n(), total_tonnes = sum(tonnes))
 head(grp_prod)
+
+all.data<-left_join(grp_prod,cl_tot, by ="year")
+head(all.data)
+
+#write.csv(all.data, "all_FAO_data.csv") #For Trevor
 
 cl_prod %>%
   filter(year==2017)%>%
@@ -57,7 +64,7 @@ cl_prod %>%
 5040435/(5040435+ 439670)
 
 quartz()
-pO<-ggplot(grp_prod, aes(x= year, y=(total_tonnes/1000000) , group=type)) +
+ggplot(grp_prod, aes(x= year, y=(total_tonnes/1000000) , group=type)) +
   geom_line(aes(color=type), size=1)+
   labs(x = "Year", y="Harvest (million tonnes)")+
   #geom_vline(xintercept = as.numeric(as.Date(c("2020-03-11"))), linetype=2,color="red")+
@@ -73,6 +80,7 @@ pO<-ggplot(grp_prod, aes(x= year, y=(total_tonnes/1000000) , group=type)) +
 head(cl_cap)
 head(cl_tot)
 
+filter(cl_tot, year= "2013")
 
 p1<-ggplot(cl_cap, aes(x= year, y=(value) , group=element)) +
   geom_line(aes(color=element), size=1)+
