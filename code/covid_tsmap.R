@@ -52,7 +52,7 @@ head(chn_news)
 chn_news$clean_date <- mdy(chn_news$clean_date)
 head(chn_news)
 
-  dates <- c(na.omit(unique(chn_news$clean_date)), ymd("2020-03-11"))
+  dates <- c(na.omit(unique(chn_news$clean_date)), ymd("2020-03-11"), ymd("2020-02-01"))
   
   dates #10 total dates picking the EARLIEST DATE to plot for a given time period
   link<- na.omit(unique(chn_news$linked_countires))
@@ -88,7 +88,7 @@ cc <- rev(scales::seq_gradient_pal("dodgerblue", "firebrick", "Lab")(seq(0,1,len
   labs(x = "Time", y=bquote(log[10]~Cases~per~million))+
   scale_x_date(date_labels = "%Y %b %d", limits = as_date(c("2020-01-01", "2020-05-01")))+
   #geom_vline(xintercept = as.numeric(as.Date(c("2020-01-23", "2020-03-01"))), linetype=2,color="black", "gray")+
-  geom_vline(xintercept = as.numeric(dates[c(1,4,5,8,10,12)]), linetype=2, color="black")+
+  geom_vline(xintercept = as.numeric(dates[c(1,4,5,8,10,12,14)]), linetype=2, color="black")+
   annotate("segment", x=dates[13], xend=dates[13], y=-Inf, yend=Inf, colour="red", linetype=2)+
   theme_classic()+
   scale_color_manual(values=cc) +
@@ -102,7 +102,7 @@ cc <- rev(scales::seq_gradient_pal("dodgerblue", "firebrick", "Lab")(seq(0,1,len
             size=2.8,
             hjust = -.1)+
   theme(legend.position = 'none', plot.margin = unit(c(1,4,1,1), "lines"))+
-  annotate("text", x = as.Date(dates[c(1,4,5,8,13,10,12)]-1.5), y=c(max_pt), label = c("A.","B.","C.","D.","E.","F.", "G"),size=2.5)
+  annotate("text", x = as.Date(dates[c(1,4,5,14,8,13,10,12)]-1.5), y=c(max_pt), label = c("A.","B.","C.","D.","E.","F.", "G", "H"),size=2.5)
 )
 
 quartz()
