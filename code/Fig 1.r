@@ -5,6 +5,8 @@
 #=============================================================
 library(tidyverse)
 
+setwd("~/Desktop/github/covid19/data/FAO_usa")
+
    XX <- read.csv(file="all_FAO_data.csv", stringsAsFactors=FALSE)
    #Three panels: aquaculture, capture, and consumption
    aq.fresh <- filter(XX, envt=="freshwater", type=="aquaculture")
@@ -23,6 +25,8 @@ library(tidyverse)
    
    scaling <- 1e06 #divide by 1 million
    max.in.panels <- 1.1*max.in.panels/scaling
+   
+   quartz()
    par(mar=c(0,0,0,0), oma=c(5,5,1,1))
    layout(mat=matrix(1:3,nrow=3, ncol=1),widths=1, 
           heights=c(3,max.in.panels[2:3]))
