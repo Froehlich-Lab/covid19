@@ -8,7 +8,7 @@ output: html_document
 #libraries
 
 ```{r}
-
+  
 library(chron)
 library(here)
 library(RColorBrewer)
@@ -170,15 +170,15 @@ centroids.df
         legend.title = element_text(size=8),
         legend.box.spacing = unit(-1, "cm"))+
   #scale_fill_viridis_c(direction=-1, option="C", na.value = "grey90",labels=c(2.5, 5, 7.5, 10), breaks=c(2.5e+08, 5e+08, 7.5e+08, 10e+08))+
-    scale_fill_gradient2(low = "yellow", mid = "violetred3", high = "orchid4", midpoint = 5e+8, na.value = "grey90")+
+  scale_fill_gradient2(low = "lightblue", mid = "royalblue", high = "firebrick", midpoint = 6e+8, na.value = "grey90", breaks=c(2.5e+8, 5e+8, 7.5e+8, 1e+9), labels=c(0.25, 0.5, 0.75, 1))+
   guides(fill=guide_colorbar(title.position = "top", title.hjust = 0.5, barwidth = 10, barheight = 0.5, units="cm"))+
-  labs(fill=bquote(Total~seafood~trade~with~China~(Tx10^6))) +
+  labs(fill=bquote(Total~seafood~trade~with~China~(MMT))) +
   ggsave(here("plots", paste0("seafood_trade_map_", Sys.Date(), ".jpg")), device="jpg", dpi=300, width=12, height=7, units="cm"))
 
 
 
 
-
+p1
 
 
 

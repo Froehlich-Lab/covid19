@@ -4,6 +4,7 @@ rm(list=ls())
 library(chron)
 library(here)
 library(RColorBrewer)
+library(colorspace)
 library(lattice)
 library(ncdf4)
 library(oce)
@@ -30,7 +31,12 @@ setwd("~/Desktop/github/covid19/data")
 
 #Our World in Data COVID (pulled both per million and totals)
 #covid_permil<-read_csv("covid-confirmed-cases-per-million-since-1-per-million.csv") 
-covid_permil <- read_csv(here("data", "covid-confirmed-cases-per-million-since-1-per-million.csv"))
+#covid_permil <- read_csv(here("data", "covid-confirmed-cases-per-million-since-1-per-million.csv"))
+covid_permil <- read_csv(here("data", "total-confirmed-cases-of-covid-19-per-million-people_May1.csv")) %>% 
+  clean_names() %>% 
+  rename(iso3 = code,
+         cases_per_million = total_confirmed_cases_of_covid_19_per_million_people_cases_per_million)
+
 
 head(covid_permil)
 #covid_tot<-read_csv("total-cases-covid-19.csv") 
@@ -46,14 +52,14 @@ head(chn_news)
 chn_news$clean_date <- mdy(chn_news$clean_date)
 head(chn_news)
 
-  dates <- c(na.omit(unique(chn_news$clean_date)), ymd("2020-03-11"))
+  dates <- c(na.omit(unique(chn_news$clean_date)), ymd("2020-03-11"), ymd("2020-02-01"))
   
   dates #10 total dates picking the EARLIEST DATE to plot for a given time period
   link<- na.omit(unique(chn_news$linked_countires))
   link #10 countries
 
 #DEAL WITH DATE
-covid_permil$Date <- mdy(covid_permil$Date)
+covid_permil$date <- mdy(covid_permil$date)
 head(covid_permil)
 
 #CLEAN NAMES
@@ -72,26 +78,32 @@ max_pt<-log10(max(cnty_covid$cases_per_million+1))
 #PLOT WITH EXAMPLE DATES (MODIFY BASED ON NEWS SELECTION)
 max_day<-max(as.Date(cnty_covid$date))
 
-p1<-ggplot(cnty_covid, aes(x=date, y=log10(cases_per_million+1), group=entity)) +
-  geom_line(aes(color=entity), size=2)+
+cc <- rev(scales::seq_gradient_pal("dodgerblue", "firebrick", "Lab")(seq(0,1,length.out=14)))[5:14]
+
+(p1<-ggplot(cnty_covid %>% 
+             mutate(entity = factor(entity, 
+                                    levels = c("China", "Norway", "Australia", "United States", "Chile", "Peru", "South Africa", "India", "Kenya", "Myanmar"))),
+           aes(x=date, y=log10(cases_per_million+1), group=entity)) +
+  geom_line(aes(color=entity), size=1.1)+
   labs(x = "Time", y=bquote(log[10]~Cases~per~million))+
-  scale_x_date(date_labels = "%Y %b %d")+
+  scale_x_date(date_labels = "%Y %b %d", limits = as_date(c("2020-01-01", "2020-05-01")))+
   #geom_vline(xintercept = as.numeric(as.Date(c("2020-01-23", "2020-03-01"))), linetype=2,color="black", "gray")+
-  geom_vline(xintercept = as.numeric(dates[c(1,4,5,8,10,12)]), linetype=2, color="black")+
+  geom_vline(xintercept = as.numeric(dates[c(1,4,5,8,10,12,14)]), linetype=2, color="black")+
   annotate("segment", x=dates[13], xend=dates[13], y=-Inf, yend=Inf, colour="red", linetype=2)+
   theme_classic()+
-  scale_color_viridis(discrete = TRUE, option = "D")+
+  scale_color_manual(values=cc) +
+  #scale_color_viridis(discrete = TRUE, option = "D")+
   geom_text(data = filter(cnty_covid, date == max_day), aes(label = entity,
-                                                            colour = entity,
+                                                            #colour = entity,
                                                             x = max_day, 
-                                                            y = case_when(entity %in% c("Peru", "South Africa") ~ log10(cases_per_million+1)-0.2,
-                                                                          TRUE ~ log10(cases_per_million+1))),
-            size=3,
+                                                            y = case_when(entity=="Norway"~log10(cases_per_million)+0.1,
+                                                                          entity=="Chile"~log10(cases_per_million)-0.1,
+                                                                          TRUE~log10(cases_per_million+1))),
+            size=2.8,
             hjust = -.1)+
   theme(legend.position = 'none', plot.margin = unit(c(1,4,1,1), "lines"))+
-  annotate("text", x = as.Date(dates[c(1,4,5,8,10,12)]-1.5), y=c(max_pt), label = c("A.","B.","C.","D.","E.","F."),size=2.5)
- 
-
+  annotate("text", x = as.Date(dates[c(1,4,5,14,8,13,10,12)]-1.5), y=c(max_pt), label = c("A.","B.","C.","D.","E.","F.", "G", "H"),size=2.5)
+)
 
 quartz()
 gt <- ggplotGrob(p1)
