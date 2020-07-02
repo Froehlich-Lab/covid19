@@ -26,7 +26,7 @@ library("rnaturalearthdata")
 theme_set(theme_bw())
 library("sf")
 
-setwd("~/Desktop/github/covid19/data")
+#setwd("~/Desktop/github/covid19/data")
 
 
 #Our World in Data COVID (pulled both per million and totals)
