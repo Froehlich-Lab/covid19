@@ -54,26 +54,27 @@ cl_map <- dat_csv_map %>%
   clean_names
 
 cl_ts$day <- mdy(cl_ts$day)
-head(cl_ts)
 
 #cl_ts$std_day<-c(0:135, 0:134, 0:134, 0:134, 0:132)
 #head(cl_ts)
-
-cl_ts$std_day<-c(0:135, 0:134, 0:134, 0:134, 0:132)
 
 lg_ts<-gather(cl_ts, search_term, google_value, seafood_restaurant, seafood_delivery,seafood_recipe,
               sushi_take_out, bbq_restaurant, factor_key=TRUE)
 head(lg_ts)
 
+lg_ts <- lg_ts %>%
+         mutate(m_day = as.Date(m_day, format = "%m/%d")) #just put everything on the same "month and day" for plotting
+
 dates <- unique(cl_ts$day)
 dates
 
+
 quartz()
-ggplot(lg_ts, aes(x= std_day, y=google_value, group=as.factor(year), fill=as.factor(year))) +
+ggplot(lg_ts, aes(x= m_day, y=google_value, group=as.factor(year), fill=as.factor(year))) +
   geom_line(aes(color=as.factor(year)), size=0.2)+
   labs(x = "Time", y="Google Trend Value")+
-  #scale_x_date(date_labels = "%Y %b %d")+
-  #geom_vline(xintercept = as.numeric(as.Date(c("2020-03-11"))), linetype=2,color="red")+
+  scale_x_date(date_labels = "%Y %b %d")+
+  geom_vline(xintercept = as.numeric(as.Date(c("2020-03-11"))), linetype=2,color="red")+
   #geom_vline(xintercept = 70, linetype=2,color="#FC4E07", cex=0.8)+
   theme_classic()+
   facet_wrap(~search_term, scales = "free")+
