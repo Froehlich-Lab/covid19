@@ -35,7 +35,7 @@ library("rnaturalearthdata")
 theme_set(theme_bw())
 library("sf")
 
-setwd("~/Desktop/github/covid19/data/Google trends/search term")
+setwd("~/Desktop/github/covid19/data/Google trends/search term_new")
 
 #list of files of interest (2016-2020) times series and map google trends
 myfiles_ts = list.files(path=getwd(), pattern="multi.*.csv", full.names=TRUE)
