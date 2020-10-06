@@ -56,7 +56,7 @@ cl_ts <- dat_csv_ts %>%
 #  clean_names
 
 cl_ts$day <- mdy(cl_ts$day)
-cl_ts$m_day <- mdy(cl_ts$m_day)
+
 
 #cl_ts$std_day<-c(0:135, 0:134, 0:134, 0:134, 0:132)
 #head(cl_ts)
@@ -66,7 +66,7 @@ lg_ts<-gather(cl_ts, search_term, google_value, seafood_restaurant, seafood_deli
 head(lg_ts)
 
 lg_ts <- lg_ts %>%
-         mutate(m_day = as.Date(m_day, format = "%m/%d")) #just put everything on the same "month and day" for plotting
+         mutate(m_day = as.Date(day, format = "%m/%d")) #just put everything on the same "month and day" for plotting
 
 head(lg_ts)
 dates <- unique(cl_ts$day)
