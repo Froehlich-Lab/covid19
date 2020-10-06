@@ -9,6 +9,8 @@ library(dplyr) #has to be opened after tidyverse or else summarise wont work
 library(plyr) #ldply
 library(readr) #ldply
 library(tidyr)
+library(lubridate)
+library(patchwork)
 library(multcomp)
 
 library(chron)
@@ -23,8 +25,6 @@ library(stats)
 library(ggmap)
 library(rworldmap)
 library(janitor)
-library(lubridate)
-library(patchwork)
 library(viridis)
 library(grid)
 
@@ -37,23 +37,26 @@ library("sf")
 
 setwd("~/Desktop/github/covid19/data/Google trends/search term_new")
 
+options(stringsAsFactors = FALSE)
+
 #list of files of interest (2016-2020) times series and map google trends
 myfiles_ts = list.files(path=getwd(), pattern="multi.*.csv", full.names=TRUE)
-myfiles_map = list.files(path=getwd(), pattern="geo.*.csv", full.names=TRUE)
+#myfiles_map = list.files(path=getwd(), pattern="geo.*.csv", full.names=TRUE)
 
 #Read every csv within the designated folder
 dat_csv_ts = ldply(myfiles_ts, read_csv)
-dat_csv_map = ldply(myfiles_map, read_csv)
+#dat_csv_map = ldply(myfiles_map, read_csv)
 
 head(dat_csv_ts)
 unique(dat_csv_ts$year)
 
 cl_ts <- dat_csv_ts %>%
   clean_names
-cl_map <- dat_csv_map %>%
-  clean_names
+#cl_map <- dat_csv_map %>%
+#  clean_names
 
 cl_ts$day <- mdy(cl_ts$day)
+cl_ts$m_day <- mdy(cl_ts$m_day)
 
 #cl_ts$std_day<-c(0:135, 0:134, 0:134, 0:134, 0:132)
 #head(cl_ts)
@@ -65,6 +68,7 @@ head(lg_ts)
 lg_ts <- lg_ts %>%
          mutate(m_day = as.Date(m_day, format = "%m/%d")) #just put everything on the same "month and day" for plotting
 
+head(lg_ts)
 dates <- unique(cl_ts$day)
 dates
 
