@@ -74,14 +74,14 @@ dates
 
 quartz()
 ggplot(lg_ts, aes(x= m_day, y=google_value, group=as.factor(year), fill=as.factor(year))) +
-  geom_line(aes(color=as.factor(year)), size=0.2)+
+  geom_line(aes(color=as.factor(year)), size=1)+
   labs(x = "Time", y="Google Trend Value")+
   scale_x_date(date_labels = "%Y %b %d")+
   geom_vline(xintercept = as.numeric(as.Date(c("2020-03-11"))), linetype=2,color="red")+
   #geom_vline(xintercept = 70, linetype=2,color="#FC4E07", cex=0.8)+
   theme_classic()+
   facet_wrap(~search_term, scales = "free")+
-  geom_smooth(aes(color = as.factor(year), fill = as.factor(year)), method = "loess") +
+  #geom_smooth(aes(color = as.factor(year), fill = as.factor(year)), method = "loess") +
   scale_fill_manual(values = c("gray", "gray","gray", "gray", "#00AFBB"))+
   scale_color_manual(values = c("gray", "gray","gray", "gray", "#00AFBB"))
   #scale_color_viridis(discrete = TRUE, option = "D")+
